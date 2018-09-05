@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        whiteNotificationBar(toolbar);
+        whiteNotificationBar(toolbar)
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
@@ -43,8 +43,7 @@ class MainActivity : AppCompatActivity() {
 
     fun whiteNotificationBar(view: View) {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            var flags = view.systemUiVisibility
-            flags = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            var flags = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             view.systemUiVisibility = flags
             window.statusBarColor = Color.WHITE
         }
