@@ -1,2 +1,2 @@
-# reactive-programming
-Random repo to learn RxJava (using Kotlin)
+# Reactive programming
+> Reactive Programming is basically event-based asynchronous programming. Everything you see is an asynchronous data stream, which can be observed and an action will be taken place when it emits values. You can create data stream out of anything; variable changes, click events, http calls, data storage, errors and what not. When it says asynchronous, that means every code module runs on its own thread thus executing multiple code blocks simultaneously." - [source](https://www.androidhive.info/RxJava/android-getting-started-with-reactive-programming/#reactive-programming)

@@ -52,6 +52,7 @@ class LocalSearchActivity : AppCompatActivity() {
         whiteNotificationBar(recycler_view)
         apiService = ApiClient.getClient().create(ApiService::class.java)
 
+        // using rxbinding
         disposable.add(RxTextView.textChangeEvents(input_search)
                 .skipInitialValue()
                 .debounce(300, TimeUnit.MILLISECONDS)

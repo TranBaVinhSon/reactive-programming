@@ -25,6 +25,10 @@ class MainActivity : AppCompatActivity() {
         btn_local_search.setOnClickListener{
             startActivity(Intent(applicationContext, LocalSearchActivity::class.java))
         }
+        // search will be performed on the server
+        btn_remote_search.setOnClickListener {
+            startActivity(Intent(applicationContext, RemoteSearchActivity::class.java))
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
