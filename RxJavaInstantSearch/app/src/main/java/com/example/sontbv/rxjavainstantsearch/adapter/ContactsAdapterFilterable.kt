@@ -2,6 +2,7 @@ package com.example.sontbv.rxjavainstantsearch.adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,11 +19,12 @@ class ContactsAdapterFilterable(): RecyclerView.Adapter<ContactsAdapterFilterabl
     private lateinit var context: Context
     private lateinit var contacts: MutableList<Contact>
     private lateinit var contactsFiltered: MutableList<Contact>
+    val TAG = "AdapterFilterable"
 
-    constructor(context: Context, contacts: MutableList<Contact>, contactsFiltered: MutableList<Contact>): this() {
+    constructor(context: Context, contacts: MutableList<Contact>): this() {
         this.contacts = contacts
         this.context = context
-        this.contactsFiltered = contactsFiltered
+        this.contactsFiltered = contacts
     }
 
     class ViewHolder(viewHolder: View): RecyclerView.ViewHolder(viewHolder) {
@@ -38,10 +40,11 @@ class ContactsAdapterFilterable(): RecyclerView.Adapter<ContactsAdapterFilterabl
     }
 
     override fun getItemCount(): Int {
-        return contacts.size
+        return contactsFiltered.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        Log.d(TAG, position.toString())
         val contact: Contact = contactsFiltered.get(position)
         holder.name.text = contact.name
         holder.phone.text = contact.phone
@@ -56,6 +59,7 @@ class ContactsAdapterFilterable(): RecyclerView.Adapter<ContactsAdapterFilterabl
         return object: Filter() {
             override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
                 contactsFiltered = p1!!.values as MutableList<Contact>
+                Log.d(TAG, "${contactsFiltered.size} size")
                 notifyDataSetChanged()
             }
 
@@ -79,9 +83,5 @@ class ContactsAdapterFilterable(): RecyclerView.Adapter<ContactsAdapterFilterabl
             }
 
         }
-    }
-
-    interface ContactsAdapterListener {
-        fun onContactSelected(contact: Contact)
     }
 }

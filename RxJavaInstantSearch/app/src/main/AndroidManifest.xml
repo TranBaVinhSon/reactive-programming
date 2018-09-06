@@ -24,6 +24,10 @@
         <activity
             android:name=".view.LocalSearchActivity"
             android:label="@string/title_activity_local_search"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.RemoteSearchActivity"
+            android:label="@string/title_activity_remote_search"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
